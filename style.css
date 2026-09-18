@@ -1,40 +1,40 @@
 /* ============ TOKENS ============ */
 :root{
-  --brand:#5B3DF5;
-  --brand-dark:#4A2FE0;
-  --heart:#FF3D68;
-  --heart-bg:#FFE7ED;
-  --ring-1:#FFC163;
-  --ring-2:#FF3D68;
-  --ring-3:#5B3DF5;
+  --brand:#E1334D;
+  --brand-dark:#C41F3C;
+  --heart:#FF3040;
+  --heart-bg:#FFE3E6;
+  --ring-1:#FEDA75;
+  --ring-2:#D62976;
+  --ring-3:#962FBF;
 
-  --bg:#FAFAF8;
+  --bg:#FFFFFF;
   --surface:#FFFFFF;
-  --surface-2:#F1F0EE;
-  --border:#E7E5E1;
-  --text:#17151C;
-  --text-dim:#68646F;
-  --text-faint:#9C98A2;
-  --shadow: 0 1px 2px rgba(23,21,28,.05), 0 8px 24px rgba(23,21,28,.06);
+  --surface-2:#F2F2F2;
+  --border:#DBDBDB;
+  --text:#0A0A0A;
+  --text-dim:#65676B;
+  --text-faint:#8E8E8E;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
 
   --radius-s:8px;
-  --radius-m:14px;
-  --radius-l:22px;
+  --radius-m:12px;
+  --radius-l:16px;
 
   --font-display:'Space Grotesk', sans-serif;
   --font-body:'Inter', sans-serif;
 }
 
 :root[data-theme="dark"]{
-  --bg:#131117;
-  --surface:#1B1922;
-  --surface-2:#242230;
-  --border:#312E3B;
-  --text:#F3F1F7;
-  --text-dim:#A6A2B0;
-  --text-faint:#716D7C;
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 10px 30px rgba(0,0,0,.35);
-  --heart-bg:#3A1F2A;
+  --bg:#0A0A0A;
+  --surface:#121212;
+  --surface-2:#1E1E1E;
+  --border:#2A2A2A;
+  --text:#F1F1F1;
+  --text-dim:#A8A8A8;
+  --text-faint:#717171;
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.45);
+  --heart-bg:#3A151C;
 }
 
 *{ box-sizing:border-box; }
@@ -181,9 +181,10 @@ input,textarea{ font-family:inherit; }
 .nav-item{
   display:flex; align-items:center; gap:12px; padding:10px 12px; border:none; background:none;
   border-radius:var(--radius-s); color:var(--text-dim); font-size:14px; font-weight:600; text-align:left;
+  border-left:3px solid transparent;
 }
 .nav-item:hover{ background:var(--surface-2); color:var(--text); }
-.nav-item.active{ background:var(--heart-bg); color:var(--brand); }
+.nav-item.active{ background:var(--surface-2); color:var(--text); border-left-color:var(--brand); }
 .nav-item.active svg{ color:var(--brand); }
 .sidebar-divider{ height:1px; background:var(--border); margin:12px 4px; }
 .sidebar-label{ font-size:11px; font-weight:700; letter-spacing:.03em; color:var(--text-faint); padding:0 12px; margin-bottom:4px; }
