@@ -4,6 +4,9 @@
   --brand-dark:#4A2FE0;
   --heart:#FF3D68;
   --heart-bg:#FFE7ED;
+  --ring-1:#FFC163;
+  --ring-2:#FF3D68;
+  --ring-3:#5B3DF5;
 
   --bg:#FAFAF8;
   --surface:#FFFFFF;
@@ -118,6 +121,56 @@ input,textarea{ font-family:inherit; }
   display:flex; align-items:center; justify-content:center; font-weight:700; font-family:var(--font-display); font-size:14px;
 }
 .avatar-sm{ width:30px; height:30px; font-size:12.5px; }
+.avatar-xs{ width:26px; height:26px; font-size:11px; }
+
+/* Instagram-style gradient story ring */
+.avatar-ring{
+  position:relative;
+  background:var(--brand);
+}
+.avatar-ring::before{
+  content:"";
+  position:absolute; inset:-3px; border-radius:999px; z-index:-1;
+  background:conic-gradient(from 200deg, var(--ring-1), var(--ring-2), var(--ring-3), var(--ring-1));
+}
+.avatar-ring{ border:2.5px solid var(--surface); }
+
+/* ============ STORIES STRIP ============ */
+.stories-strip{
+  display:flex; gap:18px; overflow-x:auto; padding:4px 2px 22px; margin-bottom:4px;
+  scrollbar-width:none;
+}
+.stories-strip::-webkit-scrollbar{ display:none; }
+.story-item{
+  display:flex; flex-direction:column; align-items:center; gap:6px; flex-shrink:0; cursor:pointer; width:68px;
+}
+.story-ring{
+  width:62px; height:62px; border-radius:999px; padding:3px;
+  background:conic-gradient(from 200deg, var(--ring-1), var(--ring-2), var(--ring-3), var(--ring-1));
+  display:flex; align-items:center; justify-content:center;
+}
+.story-ring-inner{
+  width:100%; height:100%; border-radius:999px; overflow:hidden; border:2.5px solid var(--surface);
+  background:var(--surface-2);
+}
+.story-ring-inner video, .story-ring-inner .story-fallback{ width:100%; height:100%; object-fit:cover; }
+.story-fallback{ display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-family:var(--font-display); }
+.story-label{ font-size:11px; color:var(--text-dim); max-width:68px; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* ============ BOTTOM TAB BAR (mobile) ============ */
+.tabbar{
+  display:none; position:fixed; bottom:0; left:0; right:0; height:60px; background:var(--surface);
+  border-top:1px solid var(--border); align-items:center; justify-content:space-around; z-index:60;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.tab-item{
+  border:none; background:none; color:var(--text-dim); width:44px; height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+}
+.tab-item.active{ color:var(--brand); }
+.tab-item-upload{
+  background:var(--brand); color:#fff; border-radius:999px; width:42px; height:42px;
+}
 
 /* ============ SHELL / SIDEBAR ============ */
 .shell{ display:flex; }
@@ -281,6 +334,8 @@ input,textarea{ font-family:inherit; }
   .sidebar{ display:none; }
   .search{ max-width:none; }
   .brand-name{ display:none; }
-  .main{ padding:16px; }
-  .shorts-feed{ max-width:100%; }
+  .main{ padding:16px; padding-bottom:76px; }
+  .shorts-feed{ max-width:100%; height:calc(100vh - 130px); }
+  .tabbar{ display:flex; }
+  .topbar-actions .btn-primary{ display:none; } /* upload lives in the tab bar instead */
 }
